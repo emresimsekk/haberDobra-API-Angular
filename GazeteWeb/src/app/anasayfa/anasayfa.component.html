@@ -1,0 +1,29 @@
+<div style="margin-top: 20px;" *ngIf="!haberdetay">
+<a class="badge badge-primary" style="margin-left:10px;"(click)="butunhaberler()">Butun Haberler</a>
+<a *ngFor="let item of kategoriler" class="badge badge-primary" style=" margin-left: 10px;" (click)="kategorilist(item)">{{item.name}}</a>
+
+<div style="margin-bottom:20px;"></div>
+
+
+<div *ngIf="normal" >
+<div class="card w-75" *ngFor="let item of haberler">
+    <div class="card-body">
+      <h5 class="card-title">{{item.title}}</h5>
+      <p class="card-text">{{item.content}}</p>
+      <a href="#" class="btn btn-primary" (click)="HaberSec(item)">Devamı için Tıklayınız</a>
+    </div>
+</div>
+</div>
+
+ <div *ngIf="kategorili" >
+<div class="card w-75" *ngFor="let item of kategorifiltrehaber" >
+  <div class="card-body">
+    <h5 class="card-title">{{item.title}}</h5>
+    <p class="card-text">{{item.content}}</p>
+    <a href="#" class="btn btn-primary" (click)="HaberSec(item)">Devamı için Tıklayınız</a>
+  </div>
+</div>
+</div>
+</div>
+
+<app-haber-detay [haber]=secilihaber></app-haber-detay>
