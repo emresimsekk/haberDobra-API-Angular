@@ -1,29 +1,49 @@
 <div style="margin-top: 20px;" *ngIf="!haberdetay">
-<a class="badge badge-primary" style="margin-left:10px;"(click)="butunhaberler()">Butun Haberler</a>
-<a *ngFor="let item of kategoriler" class="badge badge-primary" style=" margin-left: 10px;" (click)="kategorilist(item)">{{item.name}}</a>
 
-<div style="margin-bottom:20px;"></div>
+<div class="container"> 
+  <div class="row"> 
+   
+    <div class="col-md-9" >
 
+      <div *ngIf="normal" >
+        <div class="card mb-5" (click)="HaberSec(item)" *ngFor="let item of haberler">
+          <div class="card-body">
+            <h5 class="card-title">{{item.title}} </h5>
+            <p class="card-text">{{item.content}}</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+          <img src='{{item.thumbnail}}' height="300" class="card-img-bottom" src="..." alt="Card image cap">
+        </div>
+      </div>
 
-<div *ngIf="normal" >
-<div class="card w-75" *ngFor="let item of haberler">
-    <div class="card-body">
-      <h5 class="card-title">{{item.title}}</h5>
-      <p class="card-text">{{item.content}}</p>
-      <a href="#" class="btn btn-primary" (click)="HaberSec(item)">Devamı için Tıklayınız</a>
+      <div *ngIf="kategorili" >
+        <div class="card mb-5" (click)="HaberSec(item)" *ngFor="let item of kategorifiltrehaber">
+          <div class="card-body">
+            <h5 class="card-title">{{item.title}} </h5>
+            <p class="card-text">{{item.content}}</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+          <img src='{{item.thumbnail}}' height="300" class="card-img-bottom" src="..." alt="Card image cap">
+        </div>
+      </div>
+
+      
     </div>
-</div>
-</div>
+    <div class="col-md-3" >
+     
+      <ul class="list-group">
+        <li class="list-group-item " style="background-color: #ef5350;color:white" aria-current="true">Kategoriler</li>
+        <a class="list-group-item"  (click)="butunhaberler()">Bütün Haberler</a>
+        <a  class="list-group-item" *ngFor="let item of kategoriler"  (click)="kategorilist(item)">{{item.name}}</a>
+      </ul>
 
- <div *ngIf="kategorili" >
-<div class="card w-75" *ngFor="let item of kategorifiltrehaber" >
-  <div class="card-body">
-    <h5 class="card-title">{{item.title}}</h5>
-    <p class="card-text">{{item.content}}</p>
-    <a href="#" class="btn btn-primary" (click)="HaberSec(item)">Devamı için Tıklayınız</a>
+    </div>
   </div>
 </div>
+
 </div>
-</div>
+
+
+ 
 
 <app-haber-detay [haber]=secilihaber></app-haber-detay>

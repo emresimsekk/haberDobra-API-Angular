@@ -1,0 +1,48 @@
+
+<div class="container">
+
+ 
+    <div class="row mt-5">     
+        <div class="col-md-9">
+            <div class="col-md-12 mt-5">
+                <h2>Kategori ekle</h2>
+
+                <div class="form-group">
+                    <label for="name">Kategori Adı:</label>
+                    <input #name type="text" class="form-control" name="name">
+                </div>
+
+                <br>
+                <button class="btn " style="background-color: #ce4946; color: white;" (click)="saveKategori(name.value); ">Kategori Ekle</button>
+
+            </div>
+        </div>
+        <div class="col-md-3 ">
+            <table class="table">
+                <thead>
+                <tr>
+                   
+                    <th scope="col">Kategori Adı</th>
+                    <th scope="col">Seçenekler</th>
+                    
+                </tr>
+                </thead>
+                <tbody id="CatogoriesTable">
+                <tr *ngFor="let item of kategoriler">
+                   
+                    <td class="col-md-11">{{item.name}}</td>
+                    <td  class="col-md-1"> <button class="btn btn-danger" (click)="delete(item)">Sil</button></td>
+                    
+                </tr>
+                
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+        
+
+</div>
+
+
+    

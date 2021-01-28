@@ -2,7 +2,7 @@
   "name": "gazete-web",
   "version": "0.0.0",
   "scripts": {
-    "deploy":"ng build -sm -ec -bh/haberDobra-API-Angular/ & NGH --no-silient",
+    "deploy": "ng build -sm -ec -bh/haberDobra-API-Angular/ & NGH --no-silient",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

@@ -1,27 +1,38 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">GazeteWeb</a>
+<nav  class="navbar navbar-expand-lg navbar-light mynavbar" style="background-color:#ef5350;">
+   <a class="navbar-brand"  [routerLink]="['/anasayfa']">
+    <img src="https://geauganews.com/wp-content/uploads/2020/04/latest-news-on-png-1.png" width="90" height="30" class="d-inline-block align-top" alt="">
+    &nbsp;&nbsp;&nbsp;
+    <span  style="color:white">News</span>    
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+ 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/anasayfa']" routerLinkActive="router-link-active"  href="#">Anasayfa <span class="sr-only">(current)</span></a>
-      </li>
-      
+      &nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <li class="nav-item active" *ngIf="loggedIn()">
-        <a class="nav-link"   [routerLink]="['/haberduzenle']"  routerLinkActive="router-link-active"  href="#">Haber Düzenle  <span class="sr-only">(current)</span></a>
+        <div class="row">
+          <a class="nav-link " style="color:white"   [routerLink]="['/haberduzenle']"  routerLinkActive="router-link-active"  ><b>Haber Düzenle</b>  </a> 
+          <a class="nav-link " style="color:white"   [routerLink]="['/kategoriduzenle']"  routerLinkActive="router-link-active"  ><b>Kategori Düzenle</b>  </a>
+          <a class="nav-link" *ngIf="!loginac && logged"  (click)="logout()">Çıkış Yap</a> 
+        </div>
+      
       </li>
     </ul>
-  </div>
-  <form #form="ngForm" *ngIf="loginac"  class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" ml-auto>
-    <input #username class="form-control form-control-sm mr-sm-2" type="text" required minlength="3" name="username" placeholder="Username" [(ngModel)]="model.username">
-    <input #password class="form-control form-control-sm mr-sm-2" type="password" required minlength="3" name="password"  placeholder="Password" [(ngModel)]="model.password">
-    <button class="btn-success  btn-sm my-2 my-sm-0" [disabled]="form.invalid" type="submit" >Login</button>
-  </form>
-<button class="btn-danger  btn-sm my-2 my-sm-0" *ngIf="!loginac && !loggedIn()"    (click)="adminloginIn()" type="submit" >Admin giriş</button>
+    
 
-  <a class="nav-link" *ngIf="!loginac"  (click)="logout()">Çıkış Yap</a>
+  </div>
+
+  <form #form="ngForm" *ngIf="loginac"  class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" ml-auto>
+    <input #username class="form-control form-control-sm mr-sm-2" type="text" required minlength="3" name="username" placeholder="Kullanıcı adı" [(ngModel)]="model.username">
+    <input #password class="form-control form-control-sm mr-sm-2" type="password" required minlength="3" name="password"  placeholder="Şifre" [(ngModel)]="model.password">
+    <button class="btn-success  btn-sm my-2 my-sm-0" [disabled]="form.invalid" type="submit" >Giriş</button>
+  </form>
+
+  <button class="btn-danger  btn-sm my-2 my-sm-0 mybutton" *ngIf="!loginac && !loggedIn()"    (click)="adminloginIn()" type="submit" >Admin giriş</button>
+
+
 
 </nav>

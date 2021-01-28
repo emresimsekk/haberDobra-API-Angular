@@ -30,6 +30,7 @@ export class AnasayfaComponent implements OnInit {
 
     this.habeService.getHaber().subscribe(News => {
       this.haberler = News
+      console.log(News);
     });
   }
 
@@ -60,6 +61,8 @@ export class AnasayfaComponent implements OnInit {
     this.haberdetay=true;
     
   }
+
+
 
 
 }

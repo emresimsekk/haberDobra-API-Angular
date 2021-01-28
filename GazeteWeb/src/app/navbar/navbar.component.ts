@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArrayName } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminloginService } from '../_adminLoginService/adminlogin.service';
 
@@ -12,6 +13,7 @@ export class NavbarComponent implements OnInit {
   constructor(private router:Router,private adminlogin:AdminloginService) { }
 
   loginac:boolean=false;
+  logged:boolean=false;
   model: any= { };
   ngOnInit(): void {
   }
@@ -21,6 +23,7 @@ export class NavbarComponent implements OnInit {
       console.log("login başarılı ");
       this.router.navigate(['/anasayfa']);
       this.loginac=false;
+      this.logged = false;
     }, error => {
       console.log("login başarışız.");
     })

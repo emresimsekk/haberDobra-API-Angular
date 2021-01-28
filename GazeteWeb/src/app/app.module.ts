@@ -19,6 +19,7 @@ import { HaberduzenleComponent } from './haberduzenle/haberduzenle.component';
 
 import { AdminloginService } from './_adminLoginService/adminlogin.service';
 import { HaberDetayComponent } from './haber-detay/haber-detay.component';
+import { KategoriduzenleComponent } from './kategoriduzenle/kategoriduzenle.component';
 
 
 
@@ -32,7 +33,8 @@ import { HaberDetayComponent } from './haber-detay/haber-detay.component';
     NotFoundComponent,
 
     HaberduzenleComponent,
-    HaberDetayComponent
+    HaberDetayComponent,
+    KategoriduzenleComponent
   ],
   imports: [
     BrowserModule,
